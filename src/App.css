@@ -1,38 +1,155 @@
-.App {
+:root {
+  --dark-purple: rgba(40,0,101,1);
+  --mid-purple: rgba(60,9,121,1);
+  --light-purple: rgba(169,0,255,1);
+  --purple-gray: #6d5f84;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+input:focus, button:focus {
+  outline: var(--light-purple) auto 1px;
+}
+
+input {
+  border-radius: 5px;
+  border: 2px solid var(--purple-gray);
+}
+
+label {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.Header {
+  background: var(--dark-purple);
+  background: linear-gradient(90deg, var(--dark-purple) 0%, var(--mid-purple) 35%, var(--light-purple) 100%);  
   text-align: center;
+  padding: 20px;
+  color: #fff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Header > div {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.Header img {
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+  animation-name: spin;
+  animation-duration: 5000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; 
 }
 
-@keyframes App-logo-spin {
+@keyframes spin {
   from {
-    transform: rotate(0deg);
+    transform:rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform:rotate(360deg);
   }
+}
+
+.MemeGenerator {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.MemeGenerator h2 {
+  text-align: center;
+  margin-bottom: -15px;
+}
+
+.MemeGenerator h2 span {
+  background: #fff;
+  padding: 0 5px;
+}
+
+.MemeGenerator form {
+  display: flex;
+  flex-direction: column;
+  border: 5px solid;
+  border-image-source: linear-gradient(90deg, var(--dark-purple) 0%, var(--mid-purple) 35%, var(--light-purple) 100%);  
+  border-image-slice: 1;
+  border-radius: 5px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  max-width: 600px;
+}
+
+.MemeGenerator form button {
+  padding: 5px 10px;
+  background-color: var(--mid-purple);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  align-self: center;
+  border-radius: 5px;
+  border: 3px solid var(--dark-purple);
+  border-image: none;
+  cursor: pointer;
+}
+
+.MemeGenerator form button:hover {
+  border-color: var(--light-purple)
+}
+
+.MemeGenerator form input {
+  align-self: center;
+  margin: 5px;
+  width: 100%;
+  padding: 5px;
+}
+
+.meme {
+  margin: 40px auto;
+  width: 395px;
+  position: relative;
+}
+
+.meme > h2 {
+  position: absolute;
+  width: 80%;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 15px 0;
+  padding: 0 5px;
+  font-family: impact, sans-serif;
+  font-size: 2em;
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 1px;
+  text-shadow:
+    2px 2px 0 #000,
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    0 2px 0 #000,
+    2px 0 0 #000,
+    0 -2px 0 #000,
+    -2px 0 0 #000,
+    2px 2px 5px #000;
+}
+
+.meme .topText {
+  top: 0
+}
+
+.meme .bottomText {
+  bottom: 0
+}
+
+.meme img {
+  width: 100%;
+  margin: 0 auto;
 }
